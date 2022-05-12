@@ -5,6 +5,10 @@
 
 For the installation of add-ins and plug-ins in Fusion 360 you can follow the [link](https://knowledge.autodesk.com/support/fusion-360/troubleshooting/caas/sfdcarticles/sfdcarticles/How-to-install-an-ADD-IN-and-Script-in-Fusion-360.html).
 
+## Used resources
+
+- [Icon pack](https://github.com/icons8/flat-color-icons)
+
 ## Useful links
 
 - [Autodesk Fusion 360 API](https://autodeskfusion360.github.io/)
