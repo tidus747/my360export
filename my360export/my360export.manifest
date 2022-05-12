@@ -1,0 +1,13 @@
+{
+	"autodeskProduct":	"Fusion360",
+	"type":	"addin",
+	"id":	"e627f4de-53e5-4fc2-ab73-ac60463cfa50",
+	"author":	"Ivan Rodriguez-Mendez",
+	"description":	{
+		"":	"Utility for exporting projects in Fusion 360"
+	},
+	"version":	"0.2",
+	"runOnStartup":	false,
+	"supportedOS":	"windows",
+	"editEnabled":	true
+}
