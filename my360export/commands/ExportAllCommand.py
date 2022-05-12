@@ -25,6 +25,18 @@ import config
 
 SKIPPED_FILES = []
 
+def save_folder_dialog(appObjects):
+    # Set styles of file dialog.
+    folderDlg = appObjects.ui.createFolderDialog()
+    folderDlg.title = 'Fusion Choose Folder Dialog' 
+    
+    # Show folder dialog
+    dlgResult = folderDlg.showDialog()
+    if dlgResult == adsk.core.DialogResults.DialogOK:
+        return folderDlg.folder
+    else:
+        return -1 
+
 def export_folder(root_folder, output_folder, file_types, write_version, name_option, folder_preserve):
     ao = AppObjects()
 
@@ -189,11 +201,15 @@ class ExportAllCommand(apper.Fusion360CommandBase):
         close_command.execute()
 
     def on_create(self, command: adsk.core.Command, inputs: adsk.core.CommandInputs):
+        ao = AppObjects()
         global SKIPPED_FILES
         SKIPPED_FILES.clear()
-        default_dir = apper.get_default_dir(config.app_name)
 
-        inputs.addStringValueInput('output_folder', 'Output Folder:', default_dir)
+        filename = save_folder_dialog(ao)
+        if filename == -1:
+            filename = apper.get_default_dir(config.app_name)
+
+        inputs.addStringValueInput('output_folder', 'Output Folder:', filename)
 
         drop_input_list = inputs.addDropDownCommandInput('file_types_input', 'Export Types',
                                                          adsk.core.DropDownStyles.CheckBoxDropDownStyle)
